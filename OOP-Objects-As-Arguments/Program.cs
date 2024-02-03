@@ -15,6 +15,16 @@ namespace MyFirstProgram
             // ChangeColor(car1, "blue");
 
             Console.WriteLine($"{car2.color} {car2.model}");
+            People person1 = new People("Jun", 24);
+            People person2 = Clone(person1);
+            Console.WriteLine($"Hi {person2.name} you are {person2.age} years old");
+
+
+            /* 
+            
+            ChangeName(person1, "Anthony");
+            Console.WriteLine($"You are {person1.name} and you are {person1.age} years old");
+            */
 
             Console.ReadKey();
         }
@@ -25,6 +35,20 @@ namespace MyFirstProgram
             return new Car(car.model, car.color);
         }
 
+        public static People Clone(People person)
+        {
+            return new People(person.name, person.age);
+        }
+
+
+        /*
+        // change object
+        public static void ChangeName (People person, string name)
+        {
+            person.name = name;
+        }
+
+        */
 
         /*
         // change object
@@ -44,6 +68,18 @@ namespace MyFirstProgram
         {
             this.model = model;
             this.color = color;
+        }
+    }
+
+    class People
+    {
+        public string name;
+        public int age;
+
+        public People(string name, int age)
+        {
+            this.name = name;
+            this.age = age;
         }
     }
 }
