@@ -8,7 +8,7 @@ namespace MyFirstProgram
         {
             Car car1 = new Car("Mustang", "red");
             // use this
-            Car car2 = Copy(car1); 
+            Car car2 = Copy(car1);
             // instead of this
             // Car car2 = new Car(car.model, car.color)
 
@@ -19,6 +19,14 @@ namespace MyFirstProgram
             People person2 = Clone(person1);
             Console.WriteLine($"Hi {person2.name} you are {person2.age} years old");
 
+            Computer pc = new Computer("Intel I7", "6700", "gtx 760");
+
+            Console.WriteLine($"Jun has a {pc.proci} {pc.gen} pc that only has a {pc.gpu} as gpu");
+            GpuUpgrade(pc, "3060");
+            Console.WriteLine($"Jun has now upgraded his gpu to {pc.gpu}");
+
+            Computer pc2 = newComputer(pc);
+            Console.WriteLine($"Someone copied jun's computer specs and also has {pc2.proci} {pc2.gen} {pc2.gpu}");
 
             /* 
             
@@ -38,6 +46,18 @@ namespace MyFirstProgram
         public static People Clone(People person)
         {
             return new People(person.name, person.age);
+        }
+
+        public static Computer newComputer(Computer pc)
+        {
+            return new Computer(pc.proci, pc.gen, pc.gpu);
+        }
+
+
+
+        public static void GpuUpgrade(Computer pc, string gpu)
+        {
+            pc.gpu = gpu;
         }
 
 
@@ -81,5 +101,21 @@ namespace MyFirstProgram
             this.name = name;
             this.age = age;
         }
+    }
+
+    class Computer
+    {
+        public string proci;
+        public string gen;
+        public string gpu;
+
+        public Computer(string proci, string gen, string gpu)
+        {
+            this.proci = proci;
+            this.gen = gen;
+            this.gpu = gpu;
+        }
+
+
     }
 }
